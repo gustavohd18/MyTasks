@@ -1,4 +1,4 @@
-# Simple ToDo
+# MyTasks
 
 Mytasks will help manage your daily tasks! ⏰
 This project comes from my need to be able to organize my tasks in a different way besides, being able to put into practice and learn more about Android development. Feel free join this project! 

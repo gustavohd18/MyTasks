@@ -16,7 +16,7 @@ This project comes from my need to be able to organize my tasks in a different w
 -  Set Date to complete task
 
 ## FAQ:
-If you have any questions you like join feel free to made Pull requests or send me message!
+If you have any questions  send me message or you like join feel free to made Pull requests !
 
 ## Next update changes:
 - [ ] Set completed task

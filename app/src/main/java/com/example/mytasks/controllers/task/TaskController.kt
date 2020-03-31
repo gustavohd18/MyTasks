@@ -8,31 +8,38 @@ import com.example.mytasks.business.database.task.Task
 
 import java.util.*
 
-class TaskController (context:Context) {
+class TaskController(context: Context) {
 
-    private val dataBase =  Room.databaseBuilder(
+    private val dataBase = Room.databaseBuilder(
         context.applicationContext,
         AppDatabase::class.java, "tasks"
-    ).allowMainThreadQueries().build() // verificar pois a docu diz pra nao usar allow problema concorrencia
+    ).allowMainThreadQueries()
+        .build() // verify this case because some place said this is not correct used.
 
 
+    fun create(
+        name: String,
+        description: String,
+        userName: String,
+        type: String,
+        date: String,
+        priority: String
+    ): Boolean {
 
-    fun create(name: String, description: String, userName:String, type: String, date: String, priority: String) : Boolean {
-
-        if(name == "" || description == "" || userName == "" ||  type == "" || priority == "" || date == "") {
+        if (name == "" || description == "" || userName == "" || type == "" || priority == "" || date == "") {
             return false
         }
 
         val id = Random().nextInt(1000)
 
-       val task =  Task(id, name, description,priority,type,userName,date)
+        val task = Task(id, name, description, priority, type, userName, date)
         dataBase.taskDao().insertTask(task)
 
         return true
     }
 
     fun getAll(userEmail: String): List<Task> {
-       return  dataBase.taskDao().getAll(userEmail)
+        return dataBase.taskDao().getAll(userEmail)
     }
 
 }

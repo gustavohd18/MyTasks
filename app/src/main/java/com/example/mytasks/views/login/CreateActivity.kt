@@ -26,18 +26,18 @@ class CreateActivity : AppCompatActivity() {
             val password = editTextPassword.text.toString()
             val name = editTextName.text.toString()
 
-            val result = loginController.insert(email,password,name)
+            val result = loginController.insert(email, password, name)
 
-            if(result) {
-                Toast.makeText(this, "Conta criada com sucesso",Toast.LENGTH_LONG).show()
-                shared.edit().putString("EMAIL_USER",email).apply()
+            if (result) {
+                Toast.makeText(this, "Conta criada com sucesso", Toast.LENGTH_LONG).show()
+                shared.edit().putString("EMAIL_USER", email).apply()
                 startActivity(Intent(this, LoginActivity::class.java))
             } else {
-                Toast.makeText(this, "Não foi possivel criar a conta",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Não foi possivel criar a conta", Toast.LENGTH_LONG).show()
             }
         }
 
-        imageBack.setOnClickListener {  startActivity(Intent(this, LoginActivity::class.java)) }
+        imageBack.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
     }
 
 }

@@ -39,7 +39,7 @@ class TaskViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
             builder.setMessage(description)
 
-            builder.setNeutralButton("Ok"){dialog,_ ->
+            builder.setNeutralButton("Ok") { dialog, _ ->
                 dialog.dismiss()
             }
 

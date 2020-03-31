@@ -13,6 +13,7 @@
         android:background="#7F2A68"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/fragment"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,8 +23,33 @@
             android:layout_width="30dp"
             android:layout_height="45dp"
             android:layout_margin="8dp"
+            android:layout_weight="1"
             android:src="@drawable/ic_back"
             android:tint="@color/white" />
+
+        <Spinner
+            android:id="@+id/spinner_priority"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:scrollbarSize="10dp" />
+
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:scrollbarSize="10dp" />
+
+        <Spinner
+            android:id="@+id/spinner_completed"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:scrollbarSize="10dp" />
 
 
     </LinearLayout>

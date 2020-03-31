@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
         val shared = this.getSharedPreferences("mytasks", Context.MODE_PRIVATE)
 
-        if(shared.contains("EMAIL_USER")) {
+        if (shared.contains("EMAIL_USER")) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

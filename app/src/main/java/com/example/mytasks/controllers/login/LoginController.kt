@@ -17,10 +17,11 @@ class LoginController (context: Context) {
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                 ")+"
     )
-    private val dataBase =  Room.databaseBuilder(
-        context.applicationContext,
-        AppDatabase::class.java, "tasks"
-    ).allowMainThreadQueries().build() // verificar pois a docu diz pra nao usar allow problema concorrencia
+    private val dataBase = Room.databaseBuilder(
+            context.applicationContext,
+            AppDatabase::class.java, "tasks"
+        ).allowMainThreadQueries()
+        .build()
 
     fun getAll() = dataBase.userDao().getAll()
 

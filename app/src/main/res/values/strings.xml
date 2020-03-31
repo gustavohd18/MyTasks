@@ -3,4 +3,22 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="type_array">
+        <item>Trabalho</item>
+        <item>Lazer</item>
+        <item>Educação</item>
+    </string-array>
+
+    <string-array name="priority_array">
+        <item>Alta</item>
+        <item>Média</item>
+        <item>Baixa</item>
+    </string-array>
+
+    <string-array name="completec_array">
+        <item>Realizada</item>
+        <item>Não realizada</item>
+    </string-array>
+
 </resources>

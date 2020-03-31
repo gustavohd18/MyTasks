@@ -3,6 +3,8 @@ package com.example.mytasks.views
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,12 +16,42 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var taskController : TaskController
+    private lateinit var taskController: TaskController
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val spinnerType: Spinner = findViewById(R.id.spinner_type)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.type_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerType.adapter = adapter
+        }
+
+        val spinnerPriority: Spinner = findViewById(R.id.spinner_priority)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.priority_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerPriority.adapter = adapter
+        }
+
+        val spinnerIsCompleted: Spinner = findViewById(R.id.spinner_completed)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.completec_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerIsCompleted.adapter = adapter
+        }
 
         taskController = TaskController(this)
 
@@ -28,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         val shared = this.getSharedPreferences("mytasks", Context.MODE_PRIVATE)
         val email = shared.getString("EMAIL_USER", "")
 
-        Toast.makeText(this,"Bem vindo $email", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Bem vindo $email", Toast.LENGTH_SHORT).show()
 
 
         imageBack.setOnClickListener {

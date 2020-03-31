@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mytasks.business.database.task.Task
 
 
-class ListAdapter(private val list: List<Task>)
-    : RecyclerView.Adapter<TaskViewHolder>() {
+class ListAdapter(private val list: List<Task>) : RecyclerView.Adapter<TaskViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val inflater = LayoutInflater.from(parent.context)

@@ -4,6 +4,15 @@ class LoginContract {
     interface View {
         // hide password just don't show
         fun hidePassword()
+
+        // show alert dialog if login failed
+        fun showDialogError()
+
+        // is ok with create account
+        fun showToastBar()
+
+        // error created account
+        fun showDialogErrorCreated()
     }
 
     interface Presenter {
@@ -48,6 +57,12 @@ class LoginContract {
 
         //return to back screen
         fun goBack()
+
+        // go to create account
+        fun showCreateAccount()
+
+        // go to main screen
+        fun showMain()
 
     }
 }

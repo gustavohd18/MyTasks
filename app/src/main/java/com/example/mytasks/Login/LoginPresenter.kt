@@ -1,6 +1,10 @@
 package com.example.mytasks.Login
 
-class LoginPresenter(val view: LoginContract.View?, var interactor: LoginContract.Interactor?) :
+class LoginPresenter(
+    val view: LoginContract.View?,
+    var interactor: LoginContract.Interactor?,
+    var router: LoginContract.Router?
+) :
     LoginContract.Presenter,
     LoginContract.InteractorOutput {
     override fun loginButtonClicked(email: String, password: String) {
@@ -8,19 +12,29 @@ class LoginPresenter(val view: LoginContract.View?, var interactor: LoginContrac
     }
 
     override fun createAccountClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        router?.showCreateAccount()
     }
 
     override fun forgetPasswordClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        router?.showForgetPassword()
     }
 
     override fun loginUserResult(result: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (result) {
+            router?.showMain()
+        } else {
+            view?.showDialogError()
+        }
     }
 
     override fun CreateResult(result: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        if (result) {
+            view?.showToastBar()
+            router?.showMain()
+        } else {
+            view?.showDialogErrorCreated()
+        }
     }
 
     override fun forgetPasswordResult(result: Boolean) {
